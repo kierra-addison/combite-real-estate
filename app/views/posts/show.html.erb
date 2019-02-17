@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= link_to (image_tag(@post.title_image.variant(resize: '300x300'))), 
+              @post.title_image, 
+              target: :_blank if @post.title_image.attached? %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
