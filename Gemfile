@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 
+# Validations for Active Storage (presence)
+gem 'active_storage_validations', '~> 0.6.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -17,9 +17,9 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to (image_tag(post.title_image.variant(resize: '100x100'))), 
-                        post.title_image, 
-                        target: :_blank if post.title_image.attached? %><td>
-        <td><%= post.title %></td>
+                        post, 
+                        target: :_blank if post.title_image.attached? %></td>
+        <td><%= link_to (post.title), post %></td>
         <td><%= post.description %></td>
         <td><%= post.user %></td>
         <td><%= link_to 'Show', post %></td>

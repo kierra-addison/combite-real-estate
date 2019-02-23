@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_user, only: [:index, :show, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user = User.find(1)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -41,8 +42,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.title_image.attach(params[:title_image])
-
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -67,6 +66,7 @@ class PostsController < ApplicationController
   def delete_image_attachment
     @image = ActiveStorage::Attachment.find(params[:id])
     @image.purge
+    flash[:notice] = 'Image was successfully removed.'
     redirect_back(fallback_location: posts_url)
   end
 
