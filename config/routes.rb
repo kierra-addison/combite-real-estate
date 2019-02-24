@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       delete :delete_image_attachment
     end
+
+    resources :post_attributes, only: [:new, :create, :edit, :update, :destroy]
   end
 
   get 'admin', to: 'sessions#new'

@@ -1,0 +1,27 @@
+<%= form_with(model: post_attribute, url: {action: action}, local: true) do |form| %>
+  <% if post_attribute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post_attribute.errors.count, "error") %> prohibited this post_attribute from being saved:</h2>
+
+      <ul>
+      <% post_attribute.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :attribute_name %>
+    <%= form.text_field :attribute_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attribute_value %>
+    <%= form.text_field :attribute_value %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

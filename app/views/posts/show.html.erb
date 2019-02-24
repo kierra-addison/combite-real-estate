@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= link_to (image_tag(@post.title_image.variant(resize: '300x300'))), 
+  <%= link_to image_tag(@post.title_image.variant(resize: '300x300')), 
               @post.title_image, 
               target: :_blank if @post.title_image.attached? %>
 </p>
@@ -18,17 +18,34 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.username %>
 </p>
 
 <p>
   <strong>Post Images:</strong>
   <% @post.post_images.each do |image| %>
-    <%= link_to (image_tag(image.variant(resize: '300x300'))), image, target: :_blank %>
+    <%= link_to image_tag(image.variant(resize: '300x300')), image, target: :_blank %>
     <%= link_to 'Remove', delete_image_attachment_post_url(image),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
   <% end %>
+</p>
+
+
+<p>
+  <strong>Post Attibutes:</strong>
+  <div><%= link_to 'New post attribute', new_post_post_attribute_url(post_id: @post.id) %></div>
+  <ul>
+    <% @post.post_attributes.each do |post_attribute| %>
+      <li>
+        <%= "#{post_attribute.attribute_name}: #{post_attribute.attribute_value}" %>
+        <%= link_to 'Edit', edit_post_post_attribute_url(post_id: @post, id: post_attribute) %>
+        <%= link_to 'Delete', post_post_attribute_url(post_id: @post, id: post_attribute), 
+                              method: 'delete',
+                              data: {confirm: 'Are you sure?'} %>
+      </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

@@ -1,0 +1,5 @@
+<h1>Editing Post Attribute</h1>
+
+<%= render 'form', post_attribute: @post_attribute, action: 'update' %>
+
+<%= link_to 'Back', post_url(id: @post_attribute.post_id) %>
