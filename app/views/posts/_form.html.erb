@@ -31,6 +31,13 @@
     <%= form.file_field :post_images, multiple: true, direct_upload: true %>
   </div>
 
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :category_name do |cb| %>
+      <% cb.label(class: "") {cb.check_box(class: "") + cb.text} %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

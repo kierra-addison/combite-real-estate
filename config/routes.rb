@@ -10,9 +10,13 @@ Rails.application.routes.draw do
       delete :delete_image_attachment
     end
 
-    resources :post_attributes, only: [:new, :create, :edit, :update, :destroy]
+    resources :post_attributes, except: [:show]
   end
 
+  # Categories
+  resources :categories
+
+  # Sessions
   get 'admin', to: 'sessions#new'
   post 'admin', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

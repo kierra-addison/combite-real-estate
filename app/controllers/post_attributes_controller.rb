@@ -1,16 +1,5 @@
 class PostAttributesController < ApplicationController
-  before_action :set_post_attribute, only: [:show, :edit, :update, :destroy]
-
-  # GET /post_attributes
-  # GET /post_attributes.json
-  def index
-    @post_attributes = PostAttribute.all
-  end
-
-  # GET /post_attributes/1
-  # GET /post_attributes/1.json
-  def show
-  end
+  before_action :set_post_attribute, only: [:edit, :update, :destroy]
 
   # GET /post_attributes/new
   def new
