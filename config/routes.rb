@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'posts#home'
 
   # Users
   resources :users
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
     resources :post_attributes, except: [:show]
   end
+
+  get 'home', to: 'posts#home'
+  get 'visit-rm-post/:id', to: 'posts#visit_post', as: 'visit_post' 
 
   # Categories
   resources :categories

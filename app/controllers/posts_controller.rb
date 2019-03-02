@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_action :require_user, only: [:index, :show, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:visit_post, :show, :edit, :update, :destroy]
+
+  # GET /home
+  def home
+    @posts = Post.all
+  end
+
+  def visit_post
+  end
 
   # GET /posts
   # GET /posts.json

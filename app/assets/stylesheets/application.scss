@@ -10,12 +10,62 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-/* direct_uploads.css */
- 
+
+
+
+
+
+body {
+  /* background-color: #659DBD; */
+}
+
+a:hover { 
+  text-decoration: none;
+}
+
+ .navbar {
+  min-height: 80px;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 23px;
+  padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+.thumbnail {
+  min-height: 450px;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+
+/* direct_uploads.css */ 
 .direct-upload {
   display: inline-block;
   position: relative;
@@ -53,4 +103,9 @@
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
 }
+
+
+
+
+
 

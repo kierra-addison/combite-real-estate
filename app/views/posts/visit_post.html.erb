@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <%= link_to image_tag(@post.title_image.variant(resize: '300x300')), 
               @post.title_image, 
@@ -8,15 +6,10 @@
 
 <p>
   <strong>Post Attibutes:</strong>
-  <div><%= link_to 'New post attribute', new_post_post_attribute_url(post_id: @post.id) %></div>
   <ul>
     <% @post.post_attributes.each do |post_attribute| %>
       <li>
         <%= "#{post_attribute.attribute_name}: #{post_attribute.attribute_value}" %>
-        <%= link_to 'Edit', edit_post_post_attribute_url(post_id: @post, id: post_attribute) %>
-        <%= link_to 'Delete', post_post_attribute_url(post_id: @post, id: post_attribute), 
-                              method: 'delete',
-                              data: {confirm: 'Are you sure?'} %>
       </li>
     <% end %>
   </ul>
@@ -41,9 +34,6 @@
   <strong>Post Images:</strong>
   <% @post.post_images.each do |image| %>
     <%= link_to image_tag(image.variant(resize: '300x300')), image, target: :_blank %>
-    <%= link_to 'Remove', delete_image_attachment_post_url(image),
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' } %>
   <% end %>
 </p>
 
@@ -57,6 +47,3 @@
     <% end %>
   </ul>
 </p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
