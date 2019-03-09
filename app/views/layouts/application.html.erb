@@ -8,12 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
+    <%= favicon_link_tag "https://s3.amazonaws.com/combite-real-estate/public/rmres-logo.png" %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= render 'layouts/banner' if @home && @carousel.count > 1 %>
 
     <div class="container">
       <div class="main">

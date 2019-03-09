@@ -4,7 +4,9 @@ class PostsController < ApplicationController
 
   # GET /home
   def home
+    @home = true
     @posts = Post.all
+    @carousel = Post.last(6)
   end
 
   def visit_post
