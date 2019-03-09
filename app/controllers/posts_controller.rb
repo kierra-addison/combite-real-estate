@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /home
   def home
     @home = true
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     @carousel = Post.last(6)
   end
 
