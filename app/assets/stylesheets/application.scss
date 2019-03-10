@@ -71,6 +71,7 @@ a:hover {
 }
 
 .carousel-caption {
+  border-radius: 25px;
   background: rgba(36, 37, 42, 0.6);
 }
 
@@ -92,6 +93,10 @@ a:hover {
 
 .thumbnail {
   min-height: 450px;
+}
+
+.home-search-bar {
+  margin-top: 80px;
 }
 
 .main {

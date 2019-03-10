@@ -18,6 +18,8 @@
     <%= render 'layouts/banner' if @home && @carousel.count > 1 %>
 
     <div class="container">
+      <%= render 'shared/search' if @home || @index %>
+
       <div class="main">
         <%= yield %>
       </div>
@@ -28,3 +30,4 @@
     </div>
   </body>
 </html>
+

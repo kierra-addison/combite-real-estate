@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_one_attached :title_image
   has_many_attached :post_images
 
+  default_scope { order(created_at: :desc) }
+
   validates :title, :description, presence: true
   validates :title, length: {minimum: 5, maximum: 50}
   validates :description, length: {minimum: 50, maximum: 5000}

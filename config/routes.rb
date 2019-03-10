@@ -10,12 +10,16 @@ Rails.application.routes.draw do
       delete :delete_image_attachment
     end
 
+    collection do
+      match 'search' => 'posts#search', via: [:get, :post], as: :search
+    end
+
     resources :post_attributes, except: [:show]
   end
 
   get 'home', to: 'posts#home'
-  get 'visit-rm-post/:id', to: 'posts#visit_post', as: 'visit_post' 
-
+  get 'post-page/:id', to: 'posts#visit_post', as: 'visit_post'
+  
   # Categories
   resources :categories
 

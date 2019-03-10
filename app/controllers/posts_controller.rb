@@ -7,6 +7,14 @@ class PostsController < ApplicationController
     @home = true
     @posts = Post.all.order(created_at: :desc)
     @carousel = Post.last(6)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+  end
+
+  # GET /search
+  def search
+    index
+    render :index
   end
 
   def visit_post
@@ -15,7 +23,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @index = true
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
   # GET /posts/1
@@ -68,7 +78,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -77,7 +87,7 @@ class PostsController < ApplicationController
     @image = ActiveStorage::Attachment.find(params[:id])
     @image.purge
     flash[:notice] = 'Image was successfully removed.'
-    redirect_back(fallback_location: posts_url)
+    redirect_back(fallback_location: posts_path)
   end
 
   private
