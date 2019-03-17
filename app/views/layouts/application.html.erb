@@ -16,18 +16,15 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/banner' if @home && @carousel.count > 1 %>
+    <%= render 'shared/search' if @home || @index %>
 
     <div class="container">
-      <%= render 'shared/search' if @home || @index %>
-
       <div class="main">
         <%= yield %>
       </div>
-
-      <div class="navbar navbar-static-bottom">
-        <p class="text-center">Copyright &copy; <%= Time.now.year %> RM Real Estate Services</p>
-      </div>
     </div>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
 

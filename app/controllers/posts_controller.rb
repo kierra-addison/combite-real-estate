@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def home
     @home = true
     @posts = Post.all.order(created_at: :desc)
-    @carousel = Post.last(6)
+    @carousel = Post.last(3)
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
