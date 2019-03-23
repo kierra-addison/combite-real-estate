@@ -63,7 +63,7 @@ a:hover {
   font-weight: bold;
 }
 
-.carousel {
+.mod-carousel {
   /* any dimensions are fine, it can be responsive with max-width */
   width: 100%;
   height: 450px;
@@ -83,19 +83,19 @@ a:hover {
   padding: 0 10px;
 }
 
-.item {
+.mod-item {
   background-size: cover;
   background-position: 50% 50%;
   width: 100%;
   height: 100%;
 }
 
-.item img {
+.mod-item img {
   visibility: hidden;
 }
 
 
-.thumbnail {
+.mod-thumbnail {
   min-height: 450px;
 }
 
@@ -113,7 +113,7 @@ a:hover {
   padding: 80px 0;
 }
 
-.thumbnail:hover {
+.mod-thumbnail:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -165,6 +165,17 @@ a:hover {
  
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
+}
+
+
+
+
+
+
+.hide-bullets {
+list-style:none;
+margin-left: -40px;
+margin-top:20px;
 }
 
 

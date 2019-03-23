@@ -1,5 +1,5 @@
 <div class="banner">
-  <div id="carousel" class="carousel slide" data-ride="carousel">
+  <div id="carousel" class="carousel slide mod-carousel" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <% @carousel.each_index do |i|%>
@@ -15,7 +15,7 @@
     <div class="carousel-inner">
       <% @carousel.each_with_index do |post, i| %>
         <% if i == 0 %>
-          <div class="item active" style="background-image: url(<%= url_for(post.title_image) %>);">
+          <div class="item active mod-item" style="background-image: url(<%= url_for(post.title_image) %>);">
             <%= image_tag post.title_image %>
             <div class="carousel-caption">
               <h3><%= post.title %></h3>
@@ -24,7 +24,7 @@
             </div>
           </div>
         <% else %>
-          <div class="item" style="background-image: url(<%= url_for(post.title_image) %>);">
+          <div class="item mod-item" style="background-image: url(<%= url_for(post.title_image) %>);">
             <%= image_tag post.title_image %>
             <div class="carousel-caption">
               <h3><%= post.title %></h3>

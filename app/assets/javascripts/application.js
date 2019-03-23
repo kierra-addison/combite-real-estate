@@ -55,3 +55,35 @@ addEventListener("direct-upload:end", event => {
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.add("direct-upload--complete")
 })
+
+// JQuery
+$(document).on('turbolinks:load', function() {
+  //set here the speed to change the slides in the carousel
+  $('#myCarousel').carousel({
+          interval: 5000
+  });
+  
+  //Loads the html to each slider. Write in the "div id="slide-content-x" what you want to show in each slide
+  $('#carousel-text').html($('#slide-content-0').html());
+
+  //Handles the carousel thumbnails
+  $('[id^=carousel-selector-]').click( function(){
+      var id = this.id.substr(this.id.lastIndexOf("-") + 1);
+      var id = parseInt(id);
+      $('#myCarousel').carousel(id);
+  });
+
+
+  // Smoothly scroll to an ID
+  $('a[href*="#"]').on('click', function(e) {
+    e.preventDefault()
+
+    $('html, body').animate(
+      {
+        scrollTop: $($(this).attr('href')).offset().top,
+      },
+      500,
+      'linear'
+    )
+  });
+});
