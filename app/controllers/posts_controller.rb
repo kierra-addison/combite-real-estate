@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_user, only: [:index, :show, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
+  before_action :require_user, only: [:show, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
   before_action :set_post, only: [:visit_post, :show, :edit, :update, :destroy]
 
   # GET /home
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   # GET /search
   def search
+    @search = true
     index
     render :index
   end

@@ -27,6 +27,17 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 26px;
+}
+
+
+
+
+
+
 .navbar {
   min-height: 80px;
   margin-bottom: 0 !important;
@@ -94,11 +105,6 @@ a:hover {
   visibility: hidden;
 }
 
-
-.mod-thumbnail {
-  min-height: 450px;
-}
-
 .search-bar {
   background-color: #116466;
   padding: 40px 0 80px 0;
@@ -113,8 +119,16 @@ a:hover {
   padding: 80px 0;
 }
 
+.mod-thumbnail {
+  min-height: 500px;
+}
+
 .mod-thumbnail:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-attribute {
+  font-size: 16px;
 }
 
 .page-footer {
@@ -173,9 +187,9 @@ input[type=file][data-direct-upload-url][disabled] {
 
 
 .hide-bullets {
-list-style:none;
-margin-left: -40px;
-margin-top:20px;
+  list-style:none;
+  margin-left: -40px;
+  margin-top:20px;
 }
 
 

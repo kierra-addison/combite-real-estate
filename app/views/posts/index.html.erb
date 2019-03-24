@@ -1,28 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% unless params[:q].blank? && !@Search %>
+  <% params[:q].each do |k,v| %>
+    <h3>Search result for: <em><strong><%= v.blank? ? "_blank" : v  %></strong></em></h3>
+  <% end %>
+<% end %>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to image_tag(post.title_image.variant(resize: '100x100')), 
-                        post if post.title_image.attached? %></td>
-        <td><%= link_to (post.title), post %></td>
-        <td><%= post.description %></td>
-        <td><%= post.user.username %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_url(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% unless @posts.blank? %>
+  <% @posts.each do |post| %>
+    <div class="media">
+      <div class="media-left media-middle">
+        <%= link_to(visit_post_url(post)) do %>
+          <%= image_tag post.title_image.variant(resize: '150x150'), class: "media-object" %>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to truncate(post.title, length: 10), visit_post_url(post) %></h4>
+        <%= truncate(post.description, length: 50) %>
+        <div>
+        <% post.post_attributes.first(2).each do |attribute| %>
+          <div>
+            <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
+          </div>
+        <% end %>
+        <% if current_user %>
+          <%= link_to 'Show', post %> | 
+          <%= link_to 'Edit', edit_post_url(post) %> | 
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="text-center">No post found</div>
+<% end %>
