@@ -15,7 +15,7 @@
         <% end %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= link_to truncate(post.title, length: 10), visit_post_url(post) %></h4>
+        <h4 class="media-heading"><%= link_to truncate(post.title, length: 15), visit_post_url(post) %></h4>
         <%= truncate(post.description, length: 50) %>
         <div>
         <% post.post_attributes.first(2).each do |attribute| %>
