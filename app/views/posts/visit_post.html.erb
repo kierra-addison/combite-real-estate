@@ -50,7 +50,7 @@
   <!-- Bottom switcher of slider -->
   <ul class="hide-bullets">
     <% @post.post_images.each_with_index do |image, i| %>
-      <li class="col-sm-2 col-xs-4">
+      <li class="col-sm-2 col-xs-4 pull-right">
         <a href="#myCarousel"class="thumbnail" id="carousel-selector-<%= i %>"><%= image_tag image %></a>
       </li>
     <% end %>
