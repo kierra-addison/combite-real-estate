@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   validates :title, :description, :google_map_embed, presence: true
   validates :title, length: {minimum: 5, maximum: 50}
-  validates :google_map_embed, length: {minimum: 130, maximum: 300}
+  validates :google_map_embed, length: {minimum: 130, maximum: 500}
   validates :description, length: {minimum: 50, maximum: 5000}
   validates :title_image, attached: true, content_type: {in: [
                                                                 'image/png', 
