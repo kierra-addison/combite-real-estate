@@ -57,4 +57,10 @@
   </ul>
 </div>
 
+<div id="app" class="map">
+  <post 
+    v-bind:post="post"
+    v-for="post in currentPost(<%= @post.id %>)"/>
+  <!-- <#%= raw(@post.google_map_embed) %> -->
+</div>
     
