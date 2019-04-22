@@ -40,8 +40,11 @@
             <ul class="dropdown-menu">
               <li><%= link_to "New Post", new_post_url %></li>
               <li><%= link_to "Manage Posts", posts_url %></li>
+              <li role="separator" class="divider"></li>
               <li><%= link_to "New Category", new_category_url %></li>
               <li><%= link_to "Manage Categories", categories_url %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Manage Users", users_url %></li>
             </ul>
           </li>
           <li><a>Signed in as: <strong><%= current_user.username %></strong></a></li> 

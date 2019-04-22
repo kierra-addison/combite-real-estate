@@ -1,5 +1,11 @@
-<h1>New Post Attribute</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
 
-<%= render 'form', post_attribute: @post_attribute, action: 'create' %>
+    <h1>New Post Attribute</h1>
 
-<%= link_to 'Back', post_url(id: params[:post_id]) %>
+    <%= render 'form', post_attribute: @post_attribute, action: 'create' %>
+
+    <%= link_to 'Back', edit_post_url(id: params[:post_id]) %>
+
+  </div>
+</div>

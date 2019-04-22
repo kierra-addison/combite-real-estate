@@ -1,17 +1,23 @@
-<%= form_with(scope: :session, url: admin_url, local: true) do  |form| %>
-  <p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
+    <%= form_with(scope: :session, url: admin_url, local: true) do  |form| %>
+      <p id="notice"><%= notice %></p>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+      <div class="field">
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit 'Log in' %>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'Log in' %>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

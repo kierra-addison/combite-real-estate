@@ -24,7 +24,6 @@
           </div>
         <% end %>
         <% if current_user %>
-          <%= link_to 'Customize Sub-Attributes', post %> | 
           <%= link_to 'Edit', edit_post_url(post) %> | 
           <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>

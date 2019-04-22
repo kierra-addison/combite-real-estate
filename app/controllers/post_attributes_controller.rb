@@ -1,4 +1,5 @@
 class PostAttributesController < ApplicationController
+  before_action :require_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_post_attribute, only: [:edit, :update, :destroy]
 
   # GET /post_attributes/new
@@ -18,7 +19,7 @@ class PostAttributesController < ApplicationController
 
     respond_to do |format|
       if @post_attribute.save
-        format.html { redirect_to post_path(id: @post_attribute.post_id), notice: 'Post attribute was successfully created.' }
+        format.html { redirect_to edit_post_path(id: @post_attribute.post_id), notice: 'Post attribute was successfully created.' }
         format.json { render :show, status: :created, location: @post_attribute }
       else
         format.html { render :new }
@@ -32,7 +33,7 @@ class PostAttributesController < ApplicationController
   def update
     respond_to do |format|
       if @post_attribute.update(post_attribute_params)
-        format.html { redirect_to post_path(id: @post_attribute.post_id), notice: 'Post attribute was successfully updated.' }
+        format.html { redirect_to edit_post_path(id: @post_attribute.post_id), notice: 'Post attribute was successfully updated.' }
         format.json { render :show, status: :ok, location: @post_attribute }
       else
         format.html { render :edit }
@@ -46,7 +47,7 @@ class PostAttributesController < ApplicationController
   def destroy
     @post_attribute.destroy
     respond_to do |format|
-      format.html { redirect_to post_path(id: params[:post_id]), notice: 'Post attribute was successfully destroyed.' }
+      format.html { redirect_to edit_post_path(id: params[:post_id]), notice: 'Post attribute was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

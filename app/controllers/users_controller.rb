@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :require_user
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:show, :edit, :update]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order(:id)
   end
 
   # GET /users/1
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -41,11 +42,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    user = User.find_by_username(current_user.username).try(:authenticate, params[:current_password])
+
     respond_to do |format|
-      if @user.update(user_params)
+      if user && @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        flash[:notice] = 'Invalid old password' unless user
+        flash[:notice] = nil if user
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

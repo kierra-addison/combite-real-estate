@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
   def categories
     @categories = Category.all
   end
+
+  def check_user
+    unless @user == current_user
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
 end

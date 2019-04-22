@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+    <h1>Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category name</th>
-      <th>Category description</th>
-      <th colspan="23"></th>
-    </tr>
-  </thead>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Category name</th>
+            <th>Category description</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.category_name %></td>
-        <td><%= category.category_description %></td>
-        <td><%= link_to 'show', category_url(category) %></td>
-        <td><%= link_to 'Edit', edit_category_url(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.category_name %></td>
+              <td><%= category.category_description %></td>
+              <td><%= link_to 'Edit', edit_category_url(category) %></td>
+              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to 'New Category', new_category_url %>
+  </div>
+</div>

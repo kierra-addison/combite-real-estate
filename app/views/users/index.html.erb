@@ -1,35 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Username</th>
-      <th>Password digest</th>
-      <th>Role</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.username %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_url(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_url %>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.username %></td>
+              <td><%= user.role %></td>
+              <td><%= user.created_at %></td>
+              <td><%= user.updated_at unless user.created_at == user.updated_at %></td>
+              <% if user == current_user %>
+                <td><%= link_to 'Show', user %></td>
+                <td><%= link_to 'Change password', edit_user_url(user) %></td>
+              <% else %>
+                <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <%= link_to 'New User', new_user_url %>
+  </div>
+</div>

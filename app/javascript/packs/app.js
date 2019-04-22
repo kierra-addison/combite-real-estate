@@ -10,7 +10,7 @@ document.addEventListener("turbolinks:load", () => {
         props: ['post'],
         template: 
         ` <div class="text-center">
-            <h2>MAP</h2>
+            <h2>LOCATION MAP</h2>
             <div class="embed-responsive embed-responsive-4by3">
               <span class="embed-responsive-item" v-html="post.google_map_embed">
             </div>

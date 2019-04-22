@@ -30,11 +30,24 @@
   <div class="field">
     <%= form.label :title_image %>
     <%= form.file_field :title_image, direct_upload: true %>
+    <%= link_to @post.title_image.filename, 
+                  @post.title_image, 
+                  target: :_blank if @post.title_image.attached? %>
   </div>
 
   <div class="field">
     <%= form.label :post_images %>
     <%= form.file_field :post_images, multiple: true, direct_upload: true %>
+    <ul>
+    <% @post.post_images.each do |image| %>
+        <li>
+          <%= link_to image.filename, image, target: :_blank %> | 
+          <%= link_to 'Remove', delete_image_attachment_post_url(image),
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
+    </ul>
   </div>
 
   <div class="field">
@@ -44,7 +57,30 @@
     <% end %>
   </div>
 
+  <% if @post.id? %>
+    <div class="field">
+      <%= form.label 'Post sub-attributes' %>
+      <% if @post.post_attributes.any? %>
+        <ul>
+          <% @post.post_attributes.each do |post_attribute| %>
+            <li>
+              <%= "#{post_attribute.attribute_name}: #{post_attribute.attribute_value}" %>
+              <%= link_to 'Edit', edit_post_post_attribute_url(post_id: @post, id: post_attribute) %>
+              <%= link_to 'Delete', post_post_attribute_url(post_id: @post, id: post_attribute), 
+                                    method: 'delete',
+                                    data: {confirm: 'Are you sure?'} %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <div>No post attribute yet</div>
+      <% end %>
+      <div><%= link_to 'New post attribute', new_post_post_attribute_url(post_id: @post.id) %></div>
+    </div>
+  <% end %>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<br>
