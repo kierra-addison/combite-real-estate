@@ -1,23 +1,27 @@
 <div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-sm-6 col-md-4">
-      <%= link_to (visit_post_url(post)) do %>
-        <div class="thumbnail mod-thumbnail">
-          <% if post.title_image.attached? %>
-            <%= image_tag post.title_image %>
-          <% end %>
-
-          <div class="caption">
-            <% post.post_attributes.first(2).each do |attribute| %>
-              <div class="post-attribute">
-                <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
-              </div>
+  <% unless @post.blank? %>
+    <% @posts.each do |post| %>
+      <div class="col-sm-6 col-md-4">
+        <%= link_to (visit_post_url(post)) do %>
+          <div class="thumbnail mod-thumbnail">
+            <% if post.title_image.attached? %>
+              <%= image_tag post.title_image %>
             <% end %>
-            <h3><%= post.title %></h3>
-            <p><%= truncate(post.description, length: 100, omission: "...See More") %></p>
+
+            <div class="caption">
+              <% post.post_attributes.first(2).each do |attribute| %>
+                <div class="post-attribute">
+                  <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
+                </div>
+              <% end %>
+              <h3><%= post.title %></h3>
+              <p><%= truncate(post.description, length: 100, omission: "...See More") %></p>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="text-center">No post found</div>
   <% end %>
 </div>

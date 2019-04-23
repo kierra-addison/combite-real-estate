@@ -13,14 +13,19 @@
             <th colspan="2">Actions</th>
           </tr>
         </thead>
-
         <tbody>
-          <% @categories.each do |category| %>
-            <tr>
-              <td><%= category.category_name %></td>
-              <td><%= category.category_description %></td>
-              <td><%= link_to 'Edit', edit_category_url(category) %></td>
-              <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if @categories.any? %>
+            <% @categories.each do |category| %>
+              <tr>
+                <td><%= category.category_name %></td>
+                <td><%= category.category_description %></td>
+                <td><%= link_to 'Edit', edit_category_url(category) %></td>
+                <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr class="text-center">
+              <td colspan="3">No category found</td>
             </tr>
           <% end %>
         </tbody>
