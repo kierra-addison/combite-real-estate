@@ -1,5 +1,5 @@
 <div class="row">
-  <% unless @post.blank? %>
+  <% unless @posts.blank? %>
     <% @posts.each do |post| %>
       <div class="col-sm-6 col-md-4">
         <%= link_to (visit_post_url(post)) do %>

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/flash' if flash_list %>
 
 <% unless params[:q].blank? && !@Search %>
   <% params[:q].each do |k,v| %>

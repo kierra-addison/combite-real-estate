@@ -1,27 +1,34 @@
+<%= render 'shared/flash' if flash_list %>
+
 <div class="panel panel-default">
   <div class="panel-body">
-    <p id="notice"><%= notice %></p>
-    <p>
+    <div>
       <strong>First name:</strong>
       <%= @user.first_name %>
-    </p>
-    <p>
+    </div>
+
+    <div>
       <strong>Last name:</strong>
       <%= @user.last_name %>
-    </p>
-    <p>
+    </div>
+
+    <div>
       <strong>Username:</strong>
       <%= @user.username %>
-    </p>
-    <p>
+    </div>
+
+    <div>
       <strong>Password digest:</strong>
       <%= @user.password_digest %>
-    </p>
-    <p>
+    </div>
+
+    <div>
       <strong>Role:</strong>
       <%= @user.role %>
-    </p>
-    <%= link_to 'Edit', edit_user_url(@user) %> |
+    </div>
+
+    <%= link_to 'Edit', edit_user_url(@user) %> | 
+    <%= link_to 'Change Password', edit_change_password_url(@user) %> |
     <%= link_to 'Back', users_url %>
   </div>
 </div>

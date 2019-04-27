@@ -1,11 +1,15 @@
-<div class="panel panel-default">
-  <div class="panel-body">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'shared/errors', obj: @post_attribute %>
 
-    <h1>New Post Attribute</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1>New Post Attribute</h1>
 
-    <%= render 'form', post_attribute: @post_attribute, action: 'create' %>
+        <%= render 'form', post_attribute: @post_attribute, action: 'create' %>
 
-    <%= link_to 'Back', edit_post_url(id: params[:post_id]) %>
-
+        <%= link_to 'Back', edit_post_url(id: params[:post_id]) %>
+      </div>
+    </div>
   </div>
 </div>

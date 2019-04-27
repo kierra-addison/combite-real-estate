@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to posts_path
     else
-      flash[:notice] = 'Invalid username or password.'
+      flash[:danger] = 'Invalid username or password.'
       redirect_to admin_path
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = 'You have successfully logged out.'
+    flash[:info] = 'You have successfully logged out.'
     redirect_to admin_path
   end
 end

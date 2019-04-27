@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :edit_change_password, :update_change_password, :destroy]
+  before_action :check_user, only: [:show, :edit, :update, :edit_change_password, :update_change_password]
 
   # GET /users
   # GET /users.json
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: 'User was successfully created.' }
+        format.html { redirect_to users_path, flash: { success: 'User was successfully created.' } }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,18 +42,30 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    user = User.find_by_username(current_user.username).try(:authenticate, params[:current_password])
-
     respond_to do |format|
-      if user && @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      if @user.update(user_params)
+        format.html { redirect_to users_path, flash: { success: 'User was successfully updated.' } }
         format.json { render :show, status: :ok, location: @user }
       else
-        flash[:notice] = 'Invalid old password' unless user
-        flash[:notice] = nil if user
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def edit_change_password
+  end
+
+  def update_change_password
+    user = User.find_by_username(current_user.username).try(:authenticate, params[:current_password])
+
+    if user && @user.update(user_params)
+      flash[:success] = 'User was successfully updated.'
+      redirect_to users_path
+    else
+      flash[:danger] = 'Invalid old password' unless user
+      flash[:danger] = nil if user
+      render 'edit_change_password'
     end
   end
 
@@ -62,7 +74,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_path, flash: { info: 'User was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end

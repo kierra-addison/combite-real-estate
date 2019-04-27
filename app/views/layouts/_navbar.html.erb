@@ -24,8 +24,12 @@
                                               aria-expanded="false"><strong>Categories</strong><span 
                                               class="caret"></span></a>
           <ul class="dropdown-menu">
-            <% categories.each do |category| %>
-              <li><%= link_to category.category_name, category %></li>
+            <% if categories.any? %>
+              <% categories.each do |category| %>
+                <li><%= link_to category.category_name, category %></li>
+              <% end %>
+            <% else %>
+              <li><a href="#">No category found</a></li>
             <% end %>
           </ul>
         </li>

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/flash' if flash_list %>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -31,7 +31,8 @@
               <td><%= user.updated_at unless user.created_at == user.updated_at %></td>
               <% if user == current_user %>
                 <td><%= link_to 'Show', user %></td>
-                <td><%= link_to 'Change password', edit_user_url(user) %></td>
+                <td><%= link_to 'Edit', edit_user_url(user) %></td>
+                <td><%= link_to 'Change Password', edit_change_password_url(user) %></td>
               <% else %>
                 <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
