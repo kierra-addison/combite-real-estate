@@ -10,8 +10,8 @@
 
             <div class="caption">
               <% post.post_attributes.first(2).each do |attribute| %>
-                <div class="post-attribute">
-                  <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
+                <div class="label label-danger post-attribute">
+                  <%= attribute.attribute_name + ': ' + attribute.attribute_value %>
                 </div>
               <% end %>
               <h3><%= post.title %></h3>
