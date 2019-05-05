@@ -40,11 +40,15 @@
 
   <div class="form-group">
     <%= form.label :category %>
-    <ul>
-      <%= form.collection_check_boxes :category_ids, Category.all, :id, :category_name do |cb| %>
-        <li><%= cb.label(class: "") {cb.check_box(class: "") + cb.text} %></li>
-      <% end %>
-    </ul>
+    <% if categories.any? %>
+      <ul>
+        <%= form.collection_check_boxes :category_ids, Category.all, :id, :category_name do |cb| %>
+          <li><%= cb.label(class: "") {cb.check_box(class: "") + cb.text} %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <div>No category found. Click <%= link_to 'here', new_category_url %> to add.</div> 
+    <% end %>
   </div>
 
   <% if @post.id? %>
