@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to visit_post_path(@post), flash: { success: 'Post was successfully created.' } }
+        format.html { redirect_to new_post_post_attribute_path(@post), flash: { success: 'Post was successfully created.' } }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
