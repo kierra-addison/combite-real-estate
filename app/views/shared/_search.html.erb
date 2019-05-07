@@ -4,7 +4,7 @@
       <div class="search-bar-title text-center">
         <h2>YOU'RE ONE SEARCH AWAY FROM YOUR DREAM</h2>
       </div>
-      <%= search_form_for @q, url: search_posts_url, 
+      <%= search_form_for @q, url: search_rmpost_index_url, 
                               html: {method: :post, 
                               class: "input-group input-group-lg"} do |form| %>
         <%= form.search_field :title_or_description_or_post_attributes_attribute_name_or_post_attributes_attribute_value_cont, 

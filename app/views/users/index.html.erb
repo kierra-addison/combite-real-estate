@@ -32,7 +32,7 @@
               <% if user == current_user %>
                 <td><%= link_to 'Show', user %></td>
                 <td><%= link_to 'Edit', edit_user_url(user) %></td>
-                <td><%= link_to 'Change Password', edit_change_password_url(user) %></td>
+                <td><%= link_to 'Change Password', edit_change_password_user_url(user) %></td>
               <% else %>
                 <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>

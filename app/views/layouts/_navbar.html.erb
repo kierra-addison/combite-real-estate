@@ -26,7 +26,7 @@
           <ul class="dropdown-menu">
             <% if categories.any? %>
               <% categories.each do |category| %>
-                <li><%= link_to category.category_name, category %></li>
+                <li><%= link_to category.category_name, show_category_url(category) %></li>
               <% end %>
             <% else %>
               <li><a href="#">No category found</a></li>

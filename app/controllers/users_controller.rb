@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user
-  before_action :set_user, only: [:show, :edit, :update, :edit_change_password, :update_change_password, :destroy]
-  before_action :check_user, only: [:show, :edit, :update, :edit_change_password, :update_change_password]
+  before_action :set_user, only: [:show, :edit, :update, :edit_change_password, :change_password, :destroy]
+  before_action :check_user, only: [:show, :edit, :update, :edit_change_password, :change_password]
 
   # GET /users
   # GET /users.json
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def edit_change_password
   end
 
-  def update_change_password
+  def change_password
     user = User.find_by_username(current_user.username).try(:authenticate, params[:current_password])
 
     if user && @user.update(user_params)

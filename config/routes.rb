@@ -1,29 +1,39 @@
 Rails.application.routes.draw do
   root 'posts#home'
 
-  # Users
-  resources :users
-  get 'users/:id/change-password', to: 'users#edit_change_password', as: 'edit_change_password'
-  patch 'users/:id/change-password', to: 'users#update_change_password', as: 'update_change_password'
+  # Admin
+  scope 'admin' do
+    # Admin/Users
+    resources :users do
+      member do
+        get 'change_password', to: 'users#edit_change_password', as: 'edit_change_password'
+        patch 'change_password', to: 'users#change_password', as: 'change_password'
+      end
+    end
+    # Admin/Posts
+    resources :posts, except: [:show] do
+      member do
+        delete :delete_image_attachment
+      end
+      # Admin/Posts/PostAttributes
+      resources :post_attributes, except: [:show]
+    end
+    # Admin/Categories
+    resources :categories, except: [:show]
+  end
 
   # Posts
-  resources :posts, except: [:show] do
-    member do
-      delete :delete_image_attachment
-    end
-
+  resources :posts, only: [:show], as: 'rmpost' do
     collection do
       match 'search' => 'posts#search', via: [:get, :post], as: :search
     end
-
-    resources :post_attributes, except: [:show]
   end
-
   get 'home', to: 'posts#home'
-  get 'p/:id', to: 'posts#visit_post', as: 'visit_post'
+  # get 'p/:id', to: 'posts#visit_post', as: 'visit_post'
   
   # Categories
-  resources :categories
+  resources :categories, only: [:show], as: 'show_category'
+  # get 'c/:id', to: 'categories#show', as: 'show_category'
 
   # Sessions
   get 'admin', to: 'sessions#new'

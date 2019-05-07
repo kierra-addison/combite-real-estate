@@ -1,25 +1,67 @@
 <%= render 'shared/flash' if flash_list %>
 
-<div class="panel panel-default">
-  <div class="panel-body">
+<!-- Slider -->
+<div class="row">
+  <div class="col-xs-12" id="slider">
+    <!-- Top part of the slider -->
+    <div class="row">
+      <div class="col-sm-4">
+        <div>
+          <h2><%= @post.title %></h2>
+          <% @post.post_attributes.each do |attribute| %>
+            <div class="label label-danger post-attribute">
+              <%= attribute.attribute_name + ': ' + attribute.attribute_value %>
+            </div>
+          <% end %>
+          <p><%= simple_format(@post.description) %></p>
+        </div>
+      </div>
 
-    <p>
-      <strong>Title:</strong>
-      <%= @post.title %>
-    </p>
-
-    <p>
-      <strong>Description:</strong>
-      <%= @post.description %>
-    </p>
-
-    <p>
-      <strong>User:</strong>
-      <%= @post.user.username %>
-    </p>
-
-    <%= link_to 'Edit', edit_post_url(@post) %> |
-    <%= link_to 'Back', posts_url %>
-
+      <div class="col-sm-8" id="carousel-bounding-box">
+        <div class="carousel slide" id="myCarousel">
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <% @post.post_images.each_with_index do |image, i| %>
+              <% if i == 0 %>
+                <div class="active item" data-slide-number="<%= i %>">
+                  <%= link_to image_tag(image), image, target: :_blank %>
+                </div>
+              <% else %>
+                <div class="item" data-slide-number="<%= i %>">
+                  <%= link_to image_tag(image), image, target: :_blank %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        
+          <!-- Carousel nav -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<!--/Slider-->
+
+<div class="row" id="slider-thumbs">
+  <!-- Bottom switcher of slider -->
+  <ul class="hide-bullets">
+    <% @post.post_images.each_with_index do |image, i| %>
+      <li class="col-sm-2 col-xs-4 pull-right">
+        <a href="#myCarousel"class="thumbnail" id="carousel-selector-<%= i %>"><%= image_tag image %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="app" class="map">
+  <post 
+    v-bind:post="post"
+    v-for="post in currentPost(<%= @post.id %>)"/>
+  <!-- <#%= raw(@post.google_map_embed) %> -->
 </div>

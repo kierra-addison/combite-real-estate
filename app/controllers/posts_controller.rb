@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_user, only: [:show, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
-  before_action :set_post, only: [:visit_post, :show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /home
   def home
@@ -16,9 +16,6 @@ class PostsController < ApplicationController
     @search = true
     index
     render :index
-  end
-
-  def visit_post
   end
 
   # GET /posts
@@ -65,7 +62,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to visit_post_path(@post), flash: { success: 'Post was successfully updated.' } }
+        format.html { redirect_to rmpost_path(@post), flash: { success: 'Post was successfully updated.' } }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
