@@ -16,12 +16,12 @@
     <% @category.posts.each do |post| %>
       <div class="media">
         <div class="media-left media-middle">
-          <%= link_to(visit_post_url(post)) do %>
+          <%= link_to(rmpost_url(post)) do %>
             <%= image_tag post.title_image.variant(resize: '150x150'), class: "media-object" %>
           <% end %>
         </div>
         <div class="media-body">
-          <h4 class="media-heading"><%= link_to truncate(post.title, length: 15), visit_post_url(post) %></h4>
+          <h4 class="media-heading"><%= link_to truncate(post.title, length: 15), rmpost_url(post) %></h4>
           <%= truncate(post.description, length: 50) %>
           <div>
           <% post.post_attributes.first(2).each do |attribute| %>
