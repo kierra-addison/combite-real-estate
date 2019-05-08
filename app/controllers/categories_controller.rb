@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :require_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :require_user, only: [:index, :new, :edit, :create, :update, :destroy]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
