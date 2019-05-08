@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Home
+  get 'home', to: 'posts#home'
+  # Root
   root 'posts#home'
 
   # Admin
@@ -28,7 +31,6 @@ Rails.application.routes.draw do
       match 'search' => 'posts#search', via: [:get, :post], as: :search
     end
   end
-  get 'home', to: 'posts#home'
   # get 'p/:id', to: 'posts#visit_post', as: 'visit_post'
   
   # Categories
