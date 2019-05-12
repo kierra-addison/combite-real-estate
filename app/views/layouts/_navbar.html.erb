@@ -33,7 +33,8 @@
             <% end %>
           </ul>
         </li>
-        <li><%= link_to "Contact us", root_url, class: "nav-bar-link" %></li>
+        <!-- <li><#%= link_to "Contact us", root_url, class: "nav-bar-link" %></li> -->
+        <li><a class="nav-bar-link" href="#myModal" data-toggle="modal">Contact us</a></li>
         <li><%= link_to "About", root_url, class: "nav-bar-link" %></li>
         <% if current_user %>
           <li class="dropdown">

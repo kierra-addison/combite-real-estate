@@ -19,7 +19,9 @@ document.addEventListener("turbolinks:load", () => {
       }
     },
     data: {
-      posts: []
+      posts: [],
+      messages: [],
+      message: {}
     },
     computed: {},
     methods: {
@@ -29,8 +31,29 @@ document.addEventListener("turbolinks:load", () => {
         })
       },
 
+      listMessages: function() {
+        Api.listMessages().then(function(response) {
+          app.messages = response;
+        })
+      },
+
+      clearMessage: function() {
+        event.stopImmediatePropagation();
+
+        this.message = {};
+      },
+
       currentPost: function(id) {
         return this.posts.filter(item => item.id == id);
+      },
+
+      createMessage: function(event) {
+        Api.createMessage(this.message).then(function(response) {
+          app.listMessages();
+          app.clearMessage();
+        });
+
+        alert('Thanks! We will contact you back as soon as possible.');
       }
     },
 
