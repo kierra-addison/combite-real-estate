@@ -59,9 +59,14 @@
   </ul>
 </div>
 
-<div id="app" class="map">
-  <post 
+<div class="map">
+  <!-- <post 
     v-bind:post="post"
-    v-for="post in currentPost(<%= @post.id %>)"/>
-  <!-- <#%= raw(@post.google_map_embed) %> -->
+    v-for="post in currentPost(<%= @post.id %>)"/> -->
+  <div class="text-center">
+    <h2>LOCATION MAP</h2>
+    <div class="embed-responsive embed-responsive-4by3">
+      <%= raw(@post.google_map_embed) %>
+    </div>
+  </div>
 </div>
