@@ -20,6 +20,7 @@ document.addEventListener("turbolinks:load", () => {
     },
     data: {
       posts: []
+      // post: {}
     },
     computed: {},
     methods: {
@@ -30,9 +31,11 @@ document.addEventListener("turbolinks:load", () => {
       },
 
       currentPost: function(id) {
-        Api.currentPost(id).then(function(response) {
-          return response;
-        })
+        // Api.currentPost(id).then(function(response) {
+        //   map.post = response;
+        // })
+
+        return this.posts.filter(item => item.id == id);
       }
     },
 

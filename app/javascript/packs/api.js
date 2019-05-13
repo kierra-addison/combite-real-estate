@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function listPosts() {
-  return axios.get('/admin/posts.json').then(function(response) {
+  return axios.get('/posts/search.json').then(function(response) {
     return response.data;
   })
 }
@@ -22,8 +22,8 @@ export function createMessage(message) {
   })
 }
 
-export function currentPost(post_id) {
-  return axios.get(`/posts/${post_id}.json`).then(function(response) {
-    return response.data;
-  })
-}
+// export function currentPost(post_id) {
+//   return axios.get(`/posts/${post_id}.json`).then(function(response) {
+//     return response.data;
+//   })
+// }
