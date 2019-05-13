@@ -30,7 +30,9 @@ document.addEventListener("turbolinks:load", () => {
       },
 
       currentPost: function(id) {
-        return this.posts.filter(item => item.id == id);
+        Api.currentPost(id).then(function(response) {
+          return response;
+        })
       }
     },
 
