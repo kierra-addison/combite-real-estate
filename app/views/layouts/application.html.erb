@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'app' %>
+    <%= javascript_pack_tag 'contact' %>
     <%= javascript_pack_tag 'api' %>
     <%= favicon_link_tag "https://s3.amazonaws.com/combite-real-estate/public/rmres-logo.png" %>
 
@@ -17,15 +17,14 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= render 'layouts/contact_us_modal' %>
     <%= render 'layouts/banner' if @home && @carousel.count > 1 %>
     <%= render 'shared/search' if @home || @index %>
 
-    <div id="app" class="container">
+    <div class="container">
       <div class="main">
         <%= yield %>
       </div>
-
-      <%= render 'layouts/contact_us_modal' %>
     </div>
 
     <%= render 'layouts/footer' %>

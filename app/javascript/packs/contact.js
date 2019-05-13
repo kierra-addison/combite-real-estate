@@ -3,8 +3,8 @@ const Api = require('./api');
 // Vue.use(turbolinksAdapter); // For 'yarn add vue-turbolinks'?
 
 document.addEventListener("turbolinks:load", () => {
-  var app = new Vue({
-    el: '#app',
+  var contact = new Vue({
+    el: '#contact',
     components: {
       // 'post' : {
       //   props: ['post'],
@@ -37,7 +37,7 @@ document.addEventListener("turbolinks:load", () => {
 
       listMessages: function() {
         Api.listMessages().then(function(response) {
-          app.messages = response;
+          contact.messages = response;
         })
       },
 
@@ -49,8 +49,8 @@ document.addEventListener("turbolinks:load", () => {
 
       createMessage: function(event) {
         Api.createMessage(this.message).then(function(response) {
-          app.listMessages();
-          app.clearMessage();
+          contact.listMessages();
+          contact.clearMessage();
         });
 
         alert('Thanks! We will contact you back as soon as possible.');
