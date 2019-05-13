@@ -41,7 +41,7 @@ document.addEventListener("turbolinks:load", () => {
         })
       },
 
-      clearMessage: function() {
+      clearMessage: function(event) {
         event.stopImmediatePropagation();
 
         this.message = {};
@@ -50,7 +50,7 @@ document.addEventListener("turbolinks:load", () => {
       createMessage: function(event) {
         Api.createMessage(this.message).then(function(response) {
           contact.listMessages();
-          contact.clearMessage();
+          contact.clearMessage(event);
         });
 
         alert('Thanks! We will contact you back as soon as possible.');
