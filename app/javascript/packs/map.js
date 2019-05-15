@@ -34,7 +34,6 @@ document.addEventListener("turbolinks:load", () => {
         // Api.currentPost(id).then(function(response) {
         //   map.post = response;
         // })
-
         return this.posts.filter(item => item.id == id);
       }
     },

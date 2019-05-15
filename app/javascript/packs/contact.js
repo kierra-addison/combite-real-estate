@@ -20,7 +20,6 @@ document.addEventListener("turbolinks:load", () => {
 
       clearMessage: function() {
         event.stopImmediatePropagation();
-
         this.message = {};
       },
 

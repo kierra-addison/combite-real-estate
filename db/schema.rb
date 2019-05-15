@@ -44,10 +44,14 @@ ActiveRecord::Schema.define(version: 2019_05_12_092059) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "mobile_number"
+    t.string "encrypted_email"
+    t.string "encrypted_email_iv"
+    t.string "encrypted_first_name"
+    t.string "encrypted_first_name_iv"
+    t.string "encrypted_last_name"
+    t.string "encrypted_last_name_iv"
+    t.string "encrypted_mobile_number"
+    t.string "encrypted_mobile_number_iv"
     t.text "enquiry"
     t.boolean "read", default: false
     t.datetime "created_at", null: false
