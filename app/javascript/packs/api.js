@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+axios.defaults.headers.common['X-CSRF-Token'] = document
+  .querySelector('meta[name="csrf-token"]')
+  .getAttribute('content')
+
 export function listPosts() {
   return axios.get('/posts/search.json').then(function(response) {
     return response.data;
