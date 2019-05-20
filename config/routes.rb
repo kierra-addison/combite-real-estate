@@ -23,6 +23,13 @@ Rails.application.routes.draw do
     end
     # Admin/Categories
     resources :categories, except: [:show]
+    # Admin/Messages
+    resources :messages do
+      collection do
+        #Admin/Messages/Inbox
+        get :inbox
+      end
+    end
   end
 
   # Posts

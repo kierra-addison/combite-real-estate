@@ -78,3 +78,6 @@ gem 'jquery-rails', '~> 4.3.3'
 
 # Ransack is the successor to the MetaSearch gem. It improves and expands upon MetaSearch's functionality, but does not have a 100%-compatible API.
 gem 'ransack', '~> 2.1.1'
+
+# Generates attr_accessors that encrypt and decrypt attributes transparently
+gem 'attr_encrypted', '~> 3.1'

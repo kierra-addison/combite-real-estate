@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_07_081103) do
+ActiveRecord::Schema.define(version: 2019_05_12_092059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,21 @@ ActiveRecord::Schema.define(version: 2019_04_07_081103) do
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
     t.text "category_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "encrypted_email"
+    t.string "encrypted_email_iv"
+    t.string "encrypted_first_name"
+    t.string "encrypted_first_name_iv"
+    t.string "encrypted_last_name"
+    t.string "encrypted_last_name_iv"
+    t.string "encrypted_mobile_number"
+    t.string "encrypted_mobile_number_iv"
+    t.text "enquiry"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
