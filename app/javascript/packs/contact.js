@@ -8,6 +8,7 @@ document.addEventListener("turbolinks:load", () => {
     components: {},
     data: {
       messages: [],
+      unreads: [],
       message: {}
     },
     computed: {},
@@ -15,6 +16,7 @@ document.addEventListener("turbolinks:load", () => {
       listMessages: function() {
         Api.listMessages().then(function(response) {
           contact.messages = response;
+          contact.unreadMessages();
         })
       },
 
@@ -30,7 +32,17 @@ document.addEventListener("turbolinks:load", () => {
         });
 
         alert('Thanks! We will contact you back as soon as possible.');
+      },
+
+      unreadMessages: function() {
+        Api.listMessages().then(function(response) {
+          contact.unreads = response.filter(item => item.read == false);
+        });
       }
+    },
+
+    beforeMount() {
+      this.listMessages();
     }
   })
 });
