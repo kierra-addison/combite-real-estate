@@ -19,7 +19,7 @@
         </li>
       </ul>
 
-      <div class="list-group scroll-div">
+      <div class="list-group scroll-div-inbox-panel-left">
         <a class="list-group-item inbox-right-panel-anchor"
             v-for="message in messages"
             v-bind:class="message.read ? 'inbox-read' : 'inbox-not-read' "
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="col-xs-8">
-      <div class="panel panel-default scroll-div">
+      <div class="panel panel-default scroll-div-inbox-panel-right">
         <div class="panel-body">
           <div class="pull-right">
             <a class="inbox-right-panel-anchor"

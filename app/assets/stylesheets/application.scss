@@ -186,11 +186,18 @@ pre {
   cursor: pointer;
 }
 
-.scroll-div {
+.scroll-div-inbox-panel-right {
   height: auto;
-  max-height: 600px;
+  max-height: 665px;
   overflow: auto;   
 }
+
+.scroll-div-inbox-panel-left {
+  height: auto;
+  max-height: 521px;
+  overflow: auto;   
+}
+
 
 .badge-warning {
   background-color: #d9534f;
