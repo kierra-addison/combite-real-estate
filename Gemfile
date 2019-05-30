@@ -81,3 +81,6 @@ gem 'ransack', '~> 2.1.1'
 
 # Generates attr_accessors that encrypt and decrypt attributes transparently
 gem 'attr_encrypted', '~> 3.1'
+
+# Rename your Rails application using a single command.
+gem 'rename', '~> 1.0', '>= 1.0.6'
