@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_secure_password
 
-  validates :username, :first_name, :last_name, presence: true, length: {minimum: 2, maximum: 15}
+  validates :username, :first_name, :last_name, presence: true, length: {minimum: 2, maximum: 20}
   validates :username, uniqueness: {message: "already taken"}
   validates :password_confirmation, presence: true, if: -> {!password.nil?}
   validates :password, length: {minimum: 8, allow_nil: false}, if: -> {!password.nil?}

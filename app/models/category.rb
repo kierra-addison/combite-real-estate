@@ -3,8 +3,8 @@ class Category < ApplicationRecord
   has_many :posts, through: :post_categories
 
   validates :category_name, :category_description, presence: true
-  validates :category_name, length: {minimum: 2, maximum: 15}
-  validates :category_description, length: {minimum: 10, maximum: 100}
+  validates :category_name, length: {minimum: 2, maximum: 20}
+  validates :category_description, length: {minimum: 20, maximum: 200}
 
   before_save :capitalize_fields
 
