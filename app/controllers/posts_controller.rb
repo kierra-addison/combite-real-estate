@@ -9,11 +9,13 @@ class PostsController < ApplicationController
     @carousel = Post.first(3)
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    @render_category = true
   end
 
   # GET /search
   def search
     @search = true
+    @render_category = true
     index
     render :index
   end
@@ -24,11 +26,13 @@ class PostsController < ApplicationController
     @index = true
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
+    @render_category = true
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @render_category = true
   end
 
   # GET /posts/new

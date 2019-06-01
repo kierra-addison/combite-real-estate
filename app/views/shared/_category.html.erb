@@ -1,0 +1,21 @@
+
+  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <% categories.each_with_index do |category, i|%>
+      <% if i == 0 || i == 1 %>
+        <div class="btn-group" role="group">
+          <a href="<%= show_category_url(category) %>" class="btn btn-primary"><strong><%= category.category_name %></strong></a>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <strong>More</strong>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% categories.each do |category|%>
+          <li><%= link_to category.category_name, show_category_url(category) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>

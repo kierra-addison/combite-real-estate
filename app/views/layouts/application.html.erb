@@ -25,6 +25,7 @@
     
     <%= render 'layouts/banner' if @home && @carousel.count > 1 %>
     <%= render 'shared/search' if @home || @index %>
+    <%= render 'shared/category' if @render_category %>
 
     <div class="container">
       <div class="main">
