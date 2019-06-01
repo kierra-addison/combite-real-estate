@@ -8,6 +8,8 @@ class Category < ApplicationRecord
 
   before_save :capitalize_fields
 
+  default_scope { order(created_at: :asc) }
+
   def capitalize_fields
     self.category_name = category_name.split.each { |w|
                             w.capitalize!
