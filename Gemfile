@@ -84,3 +84,6 @@ gem 'attr_encrypted', '~> 3.1'
 
 # Rename your Rails application using a single command.
 gem 'rename', '~> 1.0', '>= 1.0.6'
+
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
