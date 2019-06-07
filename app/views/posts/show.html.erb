@@ -1,6 +1,5 @@
 <%= render 'shared/flash' if flash_list %>
 
-<!-- Slider -->
 <div class="row">
   <div class="col-xs-12" id="slider">
     <!-- Top part of the slider -->
@@ -25,46 +24,21 @@
         </div>
       </div>
 
-      <div class="col-sm-8" id="carousel-bounding-box">
-        <div class="carousel slide" id="myCarousel">
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-            <% @post.post_images.each_with_index do |image, i| %>
-              <% if i == 0 %>
-                <div class="active item" data-slide-number="<%= i %>">
+      <div class="col-sm-8">
+        <!-- Slider -->
+        <div class="slider">
+          <ul id="lightSlider">
+            <% @post.post_images.each do |image| %>
+              <li data-thumb="<%= url_for(image) %>">
                   <%= link_to image_tag(image), image, target: :_blank %>
-                </div>
-              <% else %>
-                <div class="item" data-slide-number="<%= i %>">
-                  <%= link_to image_tag(image), image, target: :_blank %>
-                </div>
-              <% end %>
+              </li>
             <% end %>
-          </div>
-        
-          <!-- Carousel nav -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
+          </ul>
         </div>
+        <!--/Slider-->
       </div>
     </div>
   </div>
-</div>
-<!--/Slider-->
-
-<div class="row" id="slider-thumbs">
-  <!-- Bottom switcher of slider -->
-  <ul class="hide-bullets">
-    <% @post.post_images.each_with_index do |image, i| %>
-      <li class="col-sm-2 col-xs-4 pull-right">
-        <a href="#myCarousel"class="thumbnail" id="carousel-selector-<%= i %>"><%= image_tag image %></a>
-      </li>
-    <% end %>
-  </ul>
 </div>
 
 <div id="map" class="map">

@@ -14,6 +14,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "lightslider";
 
 
 
@@ -270,3 +271,26 @@ input[type=file][data-direct-upload-url][disabled] {
 
 
 
+
+.slider {
+    width: 100%;
+}
+
+.slider ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+
+.slider li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+}
+
+.slider img {
+    display: block;
+    height: auto;
+    width: 100%;
+}

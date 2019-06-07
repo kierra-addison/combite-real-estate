@@ -13,10 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require activestorage
 //= require jquery
 //= require bootstrap-sprockets
+//= require_tree .
 
 // direct_uploads.js
 addEventListener("direct-upload:initialize", event => {
@@ -75,15 +75,26 @@ $(document).on('turbolinks:load', function() {
 
 
   // Smoothly scroll to an ID
-  $('a[href*="#"]').on('click', function(e) {
-    e.preventDefault()
+  // $('a[href*="#"]').on('click', function(e) {
+  //   e.preventDefault()
 
-    $('html, body').animate(
-      {
-        scrollTop: $($(this).attr('href')).offset().top,
-      },
-      500,
-      'linear'
-    )
+  //   $('html, body').animate(
+  //     {
+  //       scrollTop: $($(this).attr('href')).offset().top,
+  //     },
+  //     500,
+  //     'linear'
+  //   )
+  // });
+
+  $('#lightSlider').lightSlider({
+    gallery: true,
+    item: 1,
+    loop: true,
+    slideMargin: 0,
+    thumbItem: 4
   });
 });
+
+
+
