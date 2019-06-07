@@ -8,11 +8,19 @@
       <div class="col-sm-4">
         <div>
           <h2><%= @post.title %></h2>
-          <% @post.post_attributes.each do |attribute| %>
-            <div class="label label-danger post-attribute">
-              <%= attribute.attribute_name + ': ' + attribute.attribute_value %>
+
+          <% @post.categories.each do |category| %>
+            <div class="label label-danger category-tag-name">
+              <%= category.category_name %>
             </div>
           <% end %>
+
+          <% @post.post_attributes.each do |attribute| %>
+            <div class="post-attribute">
+              <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
+            </div>
+          <% end %>
+
           <p><%= simple_format(@post.description) %></p>
         </div>
       </div>

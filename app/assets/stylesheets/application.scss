@@ -139,9 +139,19 @@ pre {
 }
 
 .post-attribute {
+  font-size: 16px;
+}
+
+.category-tag-name {
   display: inline-block;
   font-size: 16px;
   margin: 3px;
+}
+
+.category-tag {
+  position: absolute;
+  right: 2px;
+  top: -10px;
 }
 
 .map {
@@ -255,3 +265,8 @@ pre {
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
 }
+
+
+
+
+

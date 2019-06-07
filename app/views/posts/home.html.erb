@@ -4,16 +4,25 @@
       <div class="col-sm-6 col-md-4">
         <%= link_to (rmpost_url(post)) do %>
           <div class="thumbnail mod-thumbnail">
+            <div class="category-tag">
+              <% post.categories.first(2).each do |category| %>
+                <div class="label label-danger category-tag-name">
+                  <%= category.category_name %>
+                </div>
+              <% end %>
+            </div>
+
             <% if post.title_image.attached? %>
               <%= image_tag post.title_image %>
             <% end %>
 
             <div class="caption">
               <% post.post_attributes.first(2).each do |attribute| %>
-                <div class="label label-danger post-attribute">
-                  <%= attribute.attribute_name + ': ' + attribute.attribute_value %>
+                <div class="post-attribute">
+                  <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
                 </div>
               <% end %>
+
               <h3><%= post.title %></h3>
               <p><%= truncate(post.description, length: 100, omission: "... See More") %></p>
             </div>
