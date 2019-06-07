@@ -48,7 +48,6 @@ document.addEventListener("turbolinks:load", () => {
             Api.deleteMessage(id).then(function(response) {
               inbox.$delete(inbox.messages, messageIndex);
               inbox.message = {};
-              alert('Message deleted successfully.');
             });
           }
         }
@@ -58,6 +57,15 @@ document.addEventListener("turbolinks:load", () => {
         Api.listMessages().then(function(response) {
           inbox.unreads = response.filter(item => item.read == false);
         });
+      },
+
+      messageIsEmpty: function () {
+          for (var key in this.message) {
+              if (this.message.hasOwnProperty(key)) {
+                  return false;
+              }
+          }
+          return true;
       }
     },
 

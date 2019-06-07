@@ -30,12 +30,13 @@
       </div>
     </div>
     <div class="col-xs-8">
-      <div class="panel panel-default scroll-div-inbox-panel-right">
+      <div class="panel panel-default scroll-div-inbox-panel-right" 
+            v-if="!messageIsEmpty()">
         <div class="panel-body">
           <div class="pull-right">
             <a class="inbox-right-panel-anchor"
                 v-on:click="deleteMessage($event, message.id)">
-            <span class="glyphicon glyphicon-trash"></span>
+            <span class="glyphicon glyphicon-trash" title="Delete"></span>
             </a>
           </div>
           <div><strong>Date:</strong> {{ message.created_at }}</div>
