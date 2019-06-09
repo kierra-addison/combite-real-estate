@@ -25,7 +25,7 @@ body {
   background-color: #CCC;
 }
 
-a:hover { 
+a:hover, a:visited { 
   text-decoration: none;
 }
 
@@ -235,12 +235,16 @@ pre {
   padding-top: 20px;
 }
 
-.contact-details {
-  padding-bottom: 20px;
+.contact a {
+  color: #3b5998;
 }
 
-.contact a {
-  text-decoration: none;
+.contact a:hover {
+  color: #0000EE;
+}
+
+.contact-details {
+  padding-bottom: 20px;
 }
 
 .property-specialists {
@@ -258,6 +262,19 @@ pre {
   height: 200px;
 }
 
+.btn-fb {
+  color: #fff;
+  background-color: #3b5998;
+}
+
+.btn-fb:hover{
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-fb:visited {
+  color: #fff;
+}
 
 
 

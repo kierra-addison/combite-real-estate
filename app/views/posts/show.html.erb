@@ -1,3 +1,5 @@
+<% content_for :title, @post.title %>
+<%= provide(:description, truncate(@post.description, length: 150)) %>
 <%= render 'shared/flash' if flash_list %>
 
 <div class="row">
@@ -6,6 +8,11 @@
     <div class="row">
       <div class="col-sm-4">
         <div>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>" 
+              class="btn btn-fb" 
+              title="Share on Facebook" 
+              target="_blank"><%= fa_icon('facebook', text: 'SHARE') %></a>
+
           <h2><%= @post.title %></h2>
 
           <% @post.categories.each do |category| %>
