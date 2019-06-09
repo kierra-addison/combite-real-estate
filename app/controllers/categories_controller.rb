@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @seo_page = true
     @render_category = true
   end
 
