@@ -2,21 +2,23 @@
 <%= provide(:description, truncate(@category.category_description, length: 150)) %>
 <%= render 'shared/flash' if flash_list %>
 
-<div>
-  <strong>Category name:</strong>
-  <%= @category.category_name %>
-</div>
+<div class="category-page">
+  <div>
+    <strong>Category name:</strong>
+    <%= @category.category_name %>
+  </div>
 
-<div>
-  <strong>Category description:</strong>
-  <%= @category.category_description %>
-</div>
+  <div>
+    <strong>Category description:</strong>
+    <%= @category.category_description %>
+  </div>
 
-<div>
-	<strong>Posts Related To Category:</strong>
-  <% unless @category.posts.blank? %>
-    <%= render 'shared/post_small_thumbnail', posts: @category.posts %>
-  <% else %>
-    <div class="text-center">No post found</div>
-  <% end %>
+  <div>
+  	<strong>Posts Related To Category:</strong>
+    <% unless @category.posts.blank? %>
+      <%= render 'shared/post_small_thumbnail', posts: @category.posts %>
+    <% else %>
+      <div class="text-center">No post found</div>
+    <% end %>
+  </div>
 </div>
