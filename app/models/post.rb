@@ -20,18 +20,18 @@ class Post < ApplicationRecord
                                                 'image/png', 
                                                 'image/jpg', 
                                                 'image/jpeg'
-                                              ], message: 'must be JPEG or PNG'}, 
-                          dimension: { width: { min: 800, max: 2400 },
-                                      height: { min: 600, max: 1800 }, 
-                                      message: 'is not given between landscape dimension' }
+                                              ], message: 'must be JPEG or PNG'} 
+                          # dimension: { width: { min: 800, max: 2400 },
+                          #             height: { min: 600, max: 1800 }, 
+                          #             message: 'is not given between landscape dimension' }
   validates :post_images, content_type: {in: [
                                                 'image/png', 
                                                 'image/jpg', 
                                                 'image/jpeg'
-                                              ], message: 'must be JPEG or PNG'},
-                          dimension: { width: { min: 800, max: 2400 },
-                                      height: { min: 600, max: 1800 }, 
-                                      message: 'is not given between landscape dimension' }
+                                              ], message: 'must be JPEG or PNG'}
+                          # dimension: { width: { min: 800, max: 2400 },
+                          #             height: { min: 600, max: 1800 }, 
+                          #             message: 'is not given between landscape dimension' }
 
   before_save :capitalize_fields
 
