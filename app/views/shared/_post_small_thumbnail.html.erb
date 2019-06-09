@@ -1,4 +1,6 @@
+<div class="row">
 <% posts.each do |post| %>
+  <div class="col-sm-6 col-md-4">
   <div class="media">
     <div class="media-left media-middle">
       <%= link_to(rmpost_url(post)) do %>
@@ -6,12 +8,12 @@
       <% end %>
     </div>
     <div class="media-body">
-      <h4 class="media-heading"><%= link_to truncate(post.title, length: 15), rmpost_url(post) %></h4>
-      <%= truncate(post.description, length: 50) %>
+      <h4 class="media-heading"><span><%= link_to post.title, rmpost_url(post) %></span></h4>
+      <div><span><%= post.description %></span></div>
       <div>
       <% post.post_attributes.first(2).each do |attribute| %>
         <div>
-          <%= attribute.attribute_name %>:<strong> <%= truncate(attribute.attribute_value, length: 20) %></strong>
+          <span><%= attribute.attribute_name %>: <strong><%= attribute.attribute_value %></strong></span>
         </div>
       <% end %>
       <% if current_user %>
@@ -21,4 +23,6 @@
       </div>
     </div>
   </div>
+  </div>
 <% end %>
+</div>

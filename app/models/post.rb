@@ -12,16 +12,23 @@ class Post < ApplicationRecord
   validates :title, length: {minimum: 5, maximum: 50}
   validates :google_map_embed, length: {minimum: 130, maximum: 500}
   validates :description, length: {minimum: 50, maximum: 5000}
-  validates :title_image, attached: true, content_type: {in: [
-                                                                'image/png', 
-                                                                'image/jpg', 
-                                                                'image/jpeg'
-                                                              ], message: 'must be JPEG or PNG'}
+  validates :title_image, attached: true, 
+                          content_type: {in: [
+                                                'image/png', 
+                                                'image/jpg', 
+                                                'image/jpeg'
+                                              ], message: 'must be JPEG or PNG'}, 
+                          dimension: { width: { min: 800, max: 2400 },
+                                      height: { min: 600, max: 1800 }, 
+                                      message: 'is not given between dimension' }
   validates :post_images, content_type: {in: [
                                                 'image/png', 
                                                 'image/jpg', 
                                                 'image/jpeg'
-                                              ], message: 'must be JPEG or PNG'}
+                                              ], message: 'must be JPEG or PNG'},
+                          dimension: { width: { min: 800, max: 2400 },
+                                      height: { min: 600, max: 1800 }, 
+                                      message: 'is not given between dimension' }
 
   before_save :capitalize_fields
 

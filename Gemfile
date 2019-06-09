@@ -28,10 +28,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.9', '>= 4.9.3'
 
 # Validations for Active Storage (presence)
-gem 'active_storage_validations', '~> 0.6.1'
+gem 'active_storage_validations', '~> 0.7.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
