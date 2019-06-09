@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user
   has_many :post_attributes, dependent: :destroy
   has_many :post_categories, dependent: :destroy
@@ -20,7 +23,7 @@ class Post < ApplicationRecord
                                               ], message: 'must be JPEG or PNG'}, 
                           dimension: { width: { min: 800, max: 2400 },
                                       height: { min: 600, max: 1800 }, 
-                                      message: 'is not given between dimension' }
+                                      message: 'is not given between landscape dimension' }
   validates :post_images, content_type: {in: [
                                                 'image/png', 
                                                 'image/jpg', 
@@ -28,7 +31,7 @@ class Post < ApplicationRecord
                                               ], message: 'must be JPEG or PNG'},
                           dimension: { width: { min: 800, max: 2400 },
                                       height: { min: 600, max: 1800 }, 
-                                      message: 'is not given between dimension' }
+                                      message: 'is not given between landscape dimension' }
 
   before_save :capitalize_fields
 
