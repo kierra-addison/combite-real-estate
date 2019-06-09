@@ -1,6 +1,7 @@
 <% content_for :title, @post.title %>
 <%= provide(:description, truncate(@post.description, length: 150)) %>
 <%= render 'shared/flash' if flash_list %>
+<%= render 'posts/post_read_more_modal', post: @post %>
 
 <div class="row">
   <div class="col-xs-12" id="slider">
@@ -27,7 +28,10 @@
             </div>
           <% end %>
 
-          <p><%= simple_format(@post.description) %></p>
+          <p>
+            <%= simple_format(truncate(@post.description, length: 500)) %>
+            <%= link_to 'Read More', '#postReadMoreModal', class: 'read-more-link', data: {toggle: 'modal'} %>
+          </p>
         </div>
       </div>
 
