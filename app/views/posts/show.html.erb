@@ -30,7 +30,7 @@
 
           <p>
             <%= simple_format(truncate(@post.description, length: 500)) %>
-            <%= link_to 'Read More', '#postReadMoreModal', class: 'read-more-link', data: {toggle: 'modal'} %>
+            <%= link_to 'Read More', '#postReadMoreModal', class: 'read-more-link', data: {toggle: 'modal'} if @post.description.length > 500 %>
           </p>
         </div>
       </div>
