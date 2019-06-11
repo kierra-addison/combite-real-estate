@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   def home
     @seo_page = true
     @home = true
-    @posts = Post.all
-    @carousel = Post.first(3)
-    @q = Post.ransack(params[:q])
+    @posts = Post.order_descending
+    @carousel = Post.order_descending.first(3)
+    @q = Post.order_descending.ransack(params[:q])
     @posts = @q.result(distinct: true)
     @render_category = true
   end
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @index = true
-    @q = Post.ransack(params[:q])
+    @q = Post.order_descending.ransack(params[:q])
     @posts = @q.result(distinct: true)
     @render_category = true
   end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to new_post_post_attribute_path(@post), flash: { success: 'Post was successfully created.' } }
+        format.html { redirect_to new_post_post_attribute_path(post_id: @post.id), flash: { success: 'Post was successfully created.' } }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

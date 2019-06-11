@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_one_attached :title_image
   has_many_attached :post_images
 
-  default_scope { order(created_at: :desc) }
+  scope :order_descending, -> { order(created_at: :desc) }
 
   validates :title, :description, :google_map_embed, presence: true
   validates :title, length: {minimum: 5, maximum: 50}

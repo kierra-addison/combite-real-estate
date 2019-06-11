@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   attr_encrypted :last_name, key: :encrypted_key
   attr_encrypted :mobile_number, key: :encrypted_key
 
-  default_scope { order(created_at: :desc) }
+  scope :order_descending, -> { order(created_at: :desc) }
 
   private
     def encrypted_key
