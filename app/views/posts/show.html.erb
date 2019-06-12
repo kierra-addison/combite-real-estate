@@ -1,6 +1,6 @@
 <% content_for :title, @post.title %>
 <%= provide(:description, truncate(@post.description, length: 150)) %>
-<%= provide(:image, @post.title_image.service_url %>
+<%= provide(:image, @post.title_image.service_url) %>
 <%= render 'shared/flash' if flash_list %>
 <%= render 'posts/post_read_more_modal', post: @post %>
 
