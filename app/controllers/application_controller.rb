@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def categories
-    @categories = Category.all
+    @categories = Category.order_ascending
   end
 
   def check_user

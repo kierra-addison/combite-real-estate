@@ -92,7 +92,8 @@ $(document).on('turbolinks:load', function() {
     item: 1,
     loop: true,
     slideMargin: 0,
-    thumbItem: 4
+    thumbItem: 4,
+    adaptiveHeight: true
   });
 });
 
