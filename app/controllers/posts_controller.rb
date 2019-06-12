@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_user, only: [:index, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_host_for_local_storage
 
   # GET /home
   def home
@@ -103,5 +104,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :description, :google_map_embed, :title_image, post_images: [], category_ids: [])
+    end
+
+    def set_host_for_local_storage
+      ActiveStorage::Current.host = request.base_url if Rails.application.config.active_storage.service == :local
     end
 end
