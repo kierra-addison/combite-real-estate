@@ -49,5 +49,8 @@ Rails.application.routes.draw do
   post 'admin', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  # Policies
+  get 'privacy', to: 'policies#privacy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
