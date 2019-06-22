@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_user, only: [:index, :new, :edit, :create, :update, :destroy, :delete_image_attachment]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_host_for_local_storage
+  # before_action :set_host_for_local_storage
 
   # GET /home
   def home
