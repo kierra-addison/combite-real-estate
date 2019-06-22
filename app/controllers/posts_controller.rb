@@ -106,7 +106,8 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :description, :google_map_embed, :title_image, post_images: [], category_ids: [])
     end
 
-    def set_host_for_local_storage
-      ActiveStorage::Current.host = request.base_url if Rails.application.config.active_storage.service == :local
-    end
+    # For ActiveStorage service_url
+    # def set_host_for_local_storage
+    #   ActiveStorage::Current.host = request.base_url if Rails.application.config.active_storage.service == :local
+    # end
 end
