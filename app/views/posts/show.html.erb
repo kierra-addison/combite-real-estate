@@ -10,8 +10,6 @@
     <div class="row">
       <div class="col-sm-4">
         <div>
-          <%= render 'posts/fb_share' %>
-
           <h2><%= @post.title %></h2>
 
           <% @post.categories.each do |category| %>
@@ -20,16 +18,15 @@
             </div>
           <% end %>
 
-          <% @post.post_attributes.each do |attribute| %>
-            <div class="post-attribute">
-              <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
-            </div>
-          <% end %>
+          <div class="post-attribute-container">
+            <% @post.post_attributes.each do |attribute| %>
+              <div class="post-attribute">
+                <%= attribute.attribute_name %>:<strong> <%= attribute.attribute_value %></strong>
+              </div>
+            <% end %>
+          </div>
 
-          <p>
-            <%= simple_format(truncate(@post.description, length: 500)) %>
-            <%= link_to 'Read More', '#postReadMoreModal', class: 'read-more-link', data: {toggle: 'modal'} if @post.description.length > 500 %>
-          </p>
+          <%= render 'posts/fb_share' %>
         </div>
       </div>
 
@@ -45,6 +42,16 @@
           </ul>
         </div>
         <!--/Slider-->
+      </div>
+    </div>
+
+    <div class="panel panel-default post-description">
+      <div class="panel-body">
+        <h2>Description</h2>
+        <p>
+          <%= simple_format(truncate(@post.description, length: 500)) %>
+          <%= link_to 'Read More', '#postReadMoreModal', class: 'read-more-link', data: {toggle: 'modal'} if @post.description.length > 500 %>
+        </p>
       </div>
     </div>
   </div>
