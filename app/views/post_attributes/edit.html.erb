@@ -3,13 +3,11 @@
     <%= render 'shared/errors', obj: @post_attribute %>
 
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-heading">
         <h1>Editing Post Attribute</h1>
-
+      </div>
+      <div class="panel-body">
         <%= render 'form', post_attribute: @post_attribute, action: 'update' %>
-
-        <%= link_to 'Back', edit_post_url(id: @post_attribute.post_id) %>
-
       </div>
     </div>
   </div>

@@ -4,12 +4,11 @@
     <%= render 'shared/flash' if flash_list %>
 
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-heading">
         <h1>Editing Post</h1>
-
+      </div>
+      <div class="panel-body">
         <%= render 'form', post: @post %>
-
-        <%= link_to 'Back', posts_url %>
       </div>
     </div>
   </div>

@@ -3,12 +3,11 @@
     <%= render 'shared/errors', obj: @user %>
 
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-heading">
         <h1>New User</h1>
-
+      </div>
+      <div class="panel-body">
         <%= render 'form', user: @user %>
-
-        <%= link_to 'Back', users_url %>
       </div>
     </div>
   </div>

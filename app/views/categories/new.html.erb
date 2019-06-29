@@ -3,12 +3,11 @@
     <%= render 'shared/errors', obj: @category %>
 
     <div class="panel panel-default">
-      <div class="panel-body">
+      <div class="panel-heading">
         <h1>New Category</h1>
-
+      </div>
+      <div class="panel-body">
         <%= render 'form', category: @category %>
-
-        <%= link_to 'Back', categories_url %>
       </div>
     </div>
   </div>
