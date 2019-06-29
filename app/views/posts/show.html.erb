@@ -36,7 +36,7 @@
           <ul id="lightSlider">
             <% @post.post_images.each do |image| %>
               <li data-thumb="<%= url_for(image) %>">
-                  <%= link_to image_tag(image), image, target: :_blank %>
+                <%= link_to image_tag(image), image, target: :_blank %>
               </li>
             <% end %>
           </ul>
