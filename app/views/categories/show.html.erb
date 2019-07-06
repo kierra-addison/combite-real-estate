@@ -16,7 +16,7 @@
   <div>
   	<strong>Posts Related To Category:</strong>
     <% unless @category.posts.blank? %>
-      <%= render 'shared/post_small_thumbnail', posts: @category.posts %>
+      <%= render 'shared/post_small_thumbnail', posts: @category_posts %>
     <% else %>
       <div class="text-center">No post found</div>
     <% end %>

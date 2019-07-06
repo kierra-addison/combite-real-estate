@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
   scope :order_descending, -> { order(created_at: :desc) }
 
-  validates :title, :image, :description, :google_map_embed, presence: true
+  validates :title, :image, :post_images, :description, :google_map_embed, presence: true
   validates :title, length: {minimum: 5, maximum: 50}
   validates :google_map_embed, length: {minimum: 130, maximum: 500}
   validates :description, length: {minimum: 50, maximum: 5000}

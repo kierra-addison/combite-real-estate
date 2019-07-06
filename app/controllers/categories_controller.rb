@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   def show
     @seo_page = true
     @render_category = true
+    @category_posts = @category.posts.order(created_at: :desc)
   end
 
   # GET /categories/new

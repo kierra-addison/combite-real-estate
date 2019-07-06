@@ -17,28 +17,28 @@
   <!-- <div class="form-group">
     <#%= form.label :title_image %>
     <#%= form.file_field :title_image, direct_upload: true %>
-    <#%= link_to @post.title_image.filename, 
-                  @post.title_image, 
-                  target: :_blank if @post.title_image.attached? %>
+    <#%= link_to post.title_image.filename, 
+                  post.title_image, 
+                  target: :_blank if post.title_image.attached? %>
   </div> -->
 
   <div class="form-group">
     <%= form.label :image %>
     <%= form.hidden_field :image, 
-                          value: @post.cached_image_data %>
+                          value: post.cached_image_data %>
     <%= form.file_field :image,
                         accept: ImageUploader::ALLOWED_TYPES.join(',') %>
-    <%= link_to @post.image.original_filename, 
-                  @post.image_url, 
-                  target: :_blank if @post.image.present? %>
+    <%= link_to post.image.original_filename, 
+                  post.image_url, 
+                  target: :_blank if post.image.present? %>
   </div>
 
   <div class="form-group">
     <%= form.label :post_images %>
     <%= form.file_field :post_images, multiple: true, direct_upload: true %>
-    <% if @post.post_images.attached? %>
+    <% if post.post_images.attached? %>
       <ul>
-      <% @post.post_images.each do |image| %>
+      <% post.post_images.each do |image| %>
           <li>
             <%= link_to image.filename, image, target: :_blank %> | 
             <%= link_to 'Remove', delete_image_attachment_post_url(image),
@@ -63,16 +63,16 @@
     <% end %>
   </div>
 
-  <% if @post.id? %>
+  <% if post.id? %>
     <div class="form-group">
       <%= form.label 'Post sub-attributes' %>
-      <% if @post.post_attributes.any? %>
+      <% if post.post_attributes.any? %>
         <ul>
-          <% @post.post_attributes.each do |post_attribute| %>
+          <% post.post_attributes.each do |post_attribute| %>
             <li>
               <%= "#{post_attribute.attribute_name}: #{post_attribute.attribute_value}" %>
-              <%= link_to 'Edit', edit_post_post_attribute_url(post_id: @post, id: post_attribute) %> | 
-              <%= link_to 'Delete', post_post_attribute_url(post_id: @post, id: post_attribute), 
+              <%= link_to 'Edit', edit_post_post_attribute_url(post_id: post, id: post_attribute) %> | 
+              <%= link_to 'Delete', post_post_attribute_url(post_id: post, id: post_attribute), 
                                     method: 'delete',
                                     data: {confirm: 'Are you sure?'} %>
             </li>
@@ -81,7 +81,7 @@
       <% else %>
         <div>No post attribute yet</div>
       <% end %>
-      <div><%= link_to 'New post attribute', new_post_post_attribute_url(post_id: @post.id) %></div>
+      <div><%= link_to 'New post attribute', new_post_post_attribute_url(post_id: post.id) %></div>
     </div>
   <% end %>
   <div class="panel-footer">
