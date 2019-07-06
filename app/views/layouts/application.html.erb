@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @seo_page ? yield(:title) : 'RM Real Estate Services' %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'RM Real Estate Services' %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,8 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="<%= yield(:title) %>">
     <meta property="og:description" content="<%= yield(:description) %>">
-    <!-- <meta property="og:image" content="<#%= yield(:image) if @seo_page %>"> -->
-    <meta property="og:image" content="https://combite-real-estate.s3.amazonaws.com/public/rmres-logo-white-bg.jpg">
+    <meta property="og:image" content="<%= content_for?(:image) ? yield(:image) : 'https://combite-real-estate.s3.amazonaws.com/public/rmres-logo-white-bg.jpg' %>">
     <meta property="og:app_id" content="610478122777500">
   </head>
 

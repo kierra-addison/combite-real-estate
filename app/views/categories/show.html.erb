@@ -1,5 +1,5 @@
 <% content_for :title, @category.category_name + ' Category' %>
-<%= provide(:description, truncate(@category.category_description, length: 150)) %>
+<% content_for :description, truncate(@category.category_description, length: 150) %>
 <%= render 'shared/flash' if flash_list %>
 
 <div class="category-page">

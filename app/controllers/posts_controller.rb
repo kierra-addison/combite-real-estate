@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   # GET /home
   def home
-    @seo_page = true
     @home = true
     @posts = Post.order_descending
     @carousel = Post.order_descending.first(3)
@@ -34,7 +33,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @seo_page = true
     @render_category = true
   end
 
