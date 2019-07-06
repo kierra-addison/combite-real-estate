@@ -35,9 +35,10 @@ class Post < ApplicationRecord
 
   before_save :capitalize_fields
 
-  def capitalize_fields
-    self.title = title.split.each { |w|
-                    w.capitalize!
-                  }.join(' ')
-  end
+  private
+    def capitalize_fields
+      self.title = title.split.each { |w|
+                      w.capitalize!
+                    }.join(' ')
+    end
 end
