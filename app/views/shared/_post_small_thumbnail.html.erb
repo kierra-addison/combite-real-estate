@@ -4,7 +4,9 @@
   <div class="media">
     <div class="media-left media-middle">
       <%= link_to(rmpost_url(post)) do %>
-        <%= image_tag post.title_image.variant(resize: '150x150'), class: "media-object" %>
+        <% if post.image.present? %>
+          <%= image_tag post.image_url, class: "media-object" if post.image_url %>
+        <% end %>
       <% end %>
     </div>
     <div class="media-body">

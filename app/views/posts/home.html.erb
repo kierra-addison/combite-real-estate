@@ -13,8 +13,10 @@
               <% end %>
             </div>
 
-            <% if post.title_image.attached? %>
-              <%= image_tag post.title_image %>
+            <% if post.image.present? %>
+              <%= image_tag post.image_url if post.image_url %>
+            <% else %>
+              <%= image_tag post.title_image if post.title_image.attached? %>
             <% end %>
 
             <div class="caption">

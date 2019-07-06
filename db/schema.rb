@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_071036) do
+ActiveRecord::Schema.define(version: 2019_07_06_041925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_071036) do
     t.datetime "updated_at", null: false
     t.string "google_map_embed"
     t.string "slug"
+    t.text "image_data"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

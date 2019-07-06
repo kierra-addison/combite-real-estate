@@ -92,3 +92,6 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record. It lets you create pretty URLs and work with human-friendly strings as if they were numeric ids.
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
+
+# Shrine is a toolkit for file attachments in Ruby applications.
+gem 'shrine', '~> 2.18', '>= 2.18.1'
