@@ -7,9 +7,9 @@
       <%= search_form_for @q, url: search_rmpost_index_url, 
                               html: {method: :post, 
                               class: "input-group input-group-lg"} do |form| %>
-        <%= form.search_field :title_or_description_or_post_attributes_attribute_name_or_post_attributes_attribute_value_or_categories_category_name_or_categories_category_description_cont, 
+        <%= form.search_field :title_or_description_or_post_attributes_attribute_name_or_post_attributes_attribute_value_or_categories_category_name_cont, 
                               class: "form-control", 
-                              placeholder: "Search for..." %>
+                              placeholder: "Search for name, location or price..." %>
         <span class="input-group-btn">
           <%= form.button "Go!", class: "btn btn-primary", type: "submit" %>
         </span>

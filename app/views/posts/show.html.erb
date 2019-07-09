@@ -11,6 +11,10 @@
       <div class="col-sm-4">
         <div>
           <h2><%= @post.title %></h2>
+          
+          <div class="post-date">
+            <em><%= @post.created_at.strftime('Posted on: %b %d, %Y') %></em>
+          </div>
 
           <% @post.categories.each do |category| %>
             <div class="label label-danger category-tag-name">
