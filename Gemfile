@@ -94,4 +94,4 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 
 # Shrine is a toolkit for file attachments in Ruby applications.
-gem 'shrine', '~> 2.18', '>= 2.18.1'
+gem 'shrine', '~> 3.3'
